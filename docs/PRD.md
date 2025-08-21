@@ -43,7 +43,7 @@ The **Employee Leave Tracker** is a web-based application built with **Spring Bo
 ### 4. **User Roles & Permissions**
 
 * **Employee**: Create/View/Cancel leave requests.
-* **Manager/HR**: Approve/Reject leave requests, view reports.
+* **Manager/HR**:` Approve/Reject` leave requests, view reports.
 * **Admin**: Manage employees, configure leave policies.
 
 ---
