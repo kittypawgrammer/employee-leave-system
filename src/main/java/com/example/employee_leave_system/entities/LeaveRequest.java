@@ -1,43 +1,26 @@
 package com.example.employee_leave_system.entities;
 
-import java.lang.annotation.Inherited;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import com.example.employee_leave_system.entities.LeaveStatus;
 
 @Entity
-public class leaveRequest {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "leave_requests")
+public class LeaveRequest {
     @Id
-    private long id;
-
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    @Column(name = "employee_id")
-    private Employee employee;
-
-    @Enumerated(EnumType.String)
-    @Column(name = "leave_type")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long employeeId;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private String reason;
     private LeaveType leaveType;
-
-    @Column(name = "start_date")
-    private String startDate;
-
-    @Column(name = "end_date")
-    private String endDate;
-
-    @Enumerated(EnumType.String)
-    @Column(name = "status")
     private LeaveStatus status;
-
-    @Column(name = "manager_remarks")
-    private String managerRemarks;
-
-}
-
-enum LeaveStatus {
-    PENDING,
-    APPROVED,
-    REJECTED
-}
-enum LeaveType {
-    SICK,
-    VACATION,
-    UNPAID
 }

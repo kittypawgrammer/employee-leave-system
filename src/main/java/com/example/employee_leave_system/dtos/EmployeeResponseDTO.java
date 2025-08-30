@@ -1,10 +1,12 @@
-package main.java.com.example.employee_leave_system.dtos;
+package com.example.employee_leave_system.dtos;
 
 import com.example.employee_leave_system.entities.Role;
 import lombok.Data;
 
+import com.example.employee_leave_system.entities.Role;
+
 @Data
-public class EmployeeResponseDTO {
+public class EmployeeResponseDto {
 
     private Long id;
     private String name;
@@ -12,5 +14,3 @@ public class EmployeeResponseDTO {
     private Role role;
 
 }
-
-
