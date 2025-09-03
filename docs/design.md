@@ -20,8 +20,6 @@
 | NAME        | VARCHAR2(100) | Not Null                                    |
 | EMAIL       | VARCHAR2(100) | Unique, Not Null                            |
 | ROLE        | VARCHAR2(20)  | Not Null (Values: EMPLOYEE, MANAGER, ADMIN) |
-| CREATED\_AT | TIMESTAMP     | Default: Current Timestamp                  |
-| UPDATED\_AT | TIMESTAMP     | Default: Current Timestamp                  |
 
 ---
 
@@ -37,8 +35,6 @@
 | REASON           | VARCHAR2(255) | Optional                                               |
 | STATUS           | VARCHAR2(20)  | Default: PENDING (Values: PENDING, APPROVED, REJECTED) |
 | MANAGER\_REMARKS | VARCHAR2(255) | Optional                                               |
-| CREATED\_AT      | TIMESTAMP     | Default: Current Timestamp                             |
-| UPDATED\_AT      | TIMESTAMP     | Default: Current Timestamp                             |
 
 ---
 
@@ -69,6 +65,3 @@
 
 ---
 
-✅ This simple doc should be enough for explaining your DB design in college/project submission or in a portfolio.
-
-Do you also want me to make a **1-page project summary document** (features, APIs, DB) so you have everything in one short doc for submission?
