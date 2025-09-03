@@ -1,6 +1,6 @@
 package com.example.employee_leave_system.controllers;
 
-import com.example.employee_leave_system.dtos.EmployeeResponseDto;
+import com.example.employee_leave_system.dtos.EmployeeResponseDTO;
 import com.example.employee_leave_system.dtos.EmployeeRequestDto;
 import com.example.employee_leave_system.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-import com.example.employee_leave_system.dtos.EmployeeRequestDto;
-import com.example.employee_leave_system.dtos.EmployeeRequestDto;
 
 @RestController
 @RequestMapping("/api/v1/employees")
@@ -23,14 +20,14 @@ public class EmployeeController {
     //ADMIN APIs:
     // Add Employee
     @PostMapping
-    public ResponseEntity<EmployeeResponseDto> addEmployee(@RequestBody EmployeeRequestDto EmployeeRequestDto) {
-        EmployeeResponseDto savedEmployee = employeeService.addEmployee(EmployeeRequestDto);
+    public ResponseEntity<EmployeeResponseDTO> addEmployee(@RequestBody EmployeeRequestDto employeeRequestDto) {
+        EmployeeResponseDTO savedEmployee = employeeService.addEmployee(employeeRequestDto);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
     // List Employees
     @GetMapping
-    public List<EmployeeResponseDto> listEmployees() {
+    public List<EmployeeResponseDTO> listEmployees() {
         return employeeService.listEmployees();
     }
 

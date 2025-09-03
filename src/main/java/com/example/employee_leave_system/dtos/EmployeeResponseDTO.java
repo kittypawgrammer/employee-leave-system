@@ -3,10 +3,8 @@ package com.example.employee_leave_system.dtos;
 import com.example.employee_leave_system.entities.Role;
 import lombok.Data;
 
-import com.example.employee_leave_system.entities.Role;
-
 @Data
-public class EmployeeResponseDto {
+public class EmployeeResponseDTO {
 
     private Long id;
     private String name;
