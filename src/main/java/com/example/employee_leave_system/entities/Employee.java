@@ -1,12 +1,18 @@
 package com.example.employee_leave_system.entities;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import com.example.employee_leave_system.entities.Role;
+
 @Entity
-public class employee {
+@Data
+@Table(name = "employees")
+public class Employee {
 
     @Id
-    @GeneratedValue 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
-    private long id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -14,13 +20,7 @@ public class employee {
     @Column(name = "email")
     private String email;
 
-    @Enumerated(EnumType.String)
+    @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private Role role; 
-}
-
-enum Role {
-    EMPLOYEE,
-    MANAGER,
-    ADMIN
+    private Role role;
 }

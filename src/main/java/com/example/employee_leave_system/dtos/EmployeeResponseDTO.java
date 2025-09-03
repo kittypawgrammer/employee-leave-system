@@ -1,4 +1,4 @@
-package main.java.com.example.employee_leave_system.dtos;
+package com.example.employee_leave_system.dtos;
 
 import com.example.employee_leave_system.entities.Role;
 import lombok.Data;
@@ -12,5 +12,3 @@ public class EmployeeResponseDTO {
     private Role role;
 
 }
-
-

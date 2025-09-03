@@ -39,3 +39,5 @@ out/
 ### AI
 GEMINI.md
 CLAUDE.md
+.claude 
+.gemini

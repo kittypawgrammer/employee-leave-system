@@ -1,7 +1,7 @@
-package main.java.com.example.employee_leave_system.controllers;
+package com.example.employee_leave_system.controllers;
 
-import com.example.employee_leave_system.dtos.EmployeeRequestDto;
 import com.example.employee_leave_system.dtos.EmployeeResponseDTO;
+import com.example.employee_leave_system.dtos.EmployeeRequestDto;
 import com.example.employee_leave_system.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,8 +15,9 @@ import java.util.List;
 public class EmployeeController {
 
     @Autowired
-    private main.java.com.example.employee_leave_system.services.EmployeeService employeeService;
+    private com.example.employee_leave_system.services.EmployeeService employeeService;
 
+    //ADMIN APIs:
     // Add Employee
     @PostMapping
     public ResponseEntity<EmployeeResponseDTO> addEmployee(@RequestBody EmployeeRequestDto employeeRequestDto) {
@@ -32,10 +33,8 @@ public class EmployeeController {
 
     // Delete Employee
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageResponseDto> deleteEmployee(@PathVariable Long id) {
-        String message = employeeService.deleteEmployee(id);
-        MessageResponseDto response = new MessageResponseDto();
-        response.setMessage(message);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+    public ResponseEntity<String> deleteEmployee(@PathVariable Long id) {
+        employeeService.deleteEmployee(id);
+        return new ResponseEntity<>("Employee removed successfully.", HttpStatus.OK);
     }
 }

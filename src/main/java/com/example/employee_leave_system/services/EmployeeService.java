@@ -1,12 +1,13 @@
-package main.java.com.example.employee_leave_system.services;
+package com.example.employee_leave_system.services;
 
-import com.example.employee_leave_system.dtos.EmployeeRequestDto;
 import com.example.employee_leave_system.dtos.EmployeeResponseDTO;
+import com.example.employee_leave_system.dtos.EmployeeRequestDto;
 import com.example.employee_leave_system.entities.Employee;
-import com.example.employee_leave_system.respositories.EmployeeRepository;
+import com.example.employee_leave_system.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,6 +18,7 @@ public class EmployeeService {
 
     // Add employee
     public EmployeeResponseDTO addEmployee(EmployeeRequestDto employeeRequestDto) {
+        //dto to entity
         Employee employee = new Employee();
         employee.setName(employeeRequestDto.getName());
         employee.setEmail(employeeRequestDto.getEmail());
@@ -24,30 +26,32 @@ public class EmployeeService {
 
         Employee savedEmployee = employeeRepository.save(employee);
 
-        EmployeeResponseDTO employeeResponseDTO = new EmployeeResponseDTO();
-        employeeResponseDTO.setId(savedEmployee.getId());
-        employeeResponseDTO.setName(savedEmployee.getName());
-        employeeResponseDTO.setEmail(savedEmployee.getEmail());
-        employeeResponseDTO.setRole(savedEmployee.getRole());
+        //entity to dto
+        EmployeeResponseDTO employeeResponseDto = new EmployeeResponseDTO();
+        employeeResponseDto.setId(savedEmployee.getId());
+        employeeResponseDto.setName(savedEmployee.getName());
+        employeeResponseDto.setEmail(savedEmployee.getEmail());
+        employeeResponseDto.setRole(savedEmployee.getRole());
 
-        return employeeResponseDTO;
+        return employeeResponseDto;
     }
 
     // List employees
     public List<EmployeeResponseDTO> listEmployees() {
         List<Employee> employees = employeeRepository.findAll();
-        List<EmployeeResponseDTO> employeeResponseDTOs = new java.util.ArrayList<>();
+        //entity to dto
+        List<EmployeeResponseDTO> employeeResponseDtos = new ArrayList<>();
 
         for (Employee employee : employees) {
-            EmployeeResponseDTO employeeResponseDTO = new EmployeeResponseDTO();
-            employeeResponseDTO.setId(employee.getId());
-            employeeResponseDTO.setName(employee.getName());
-            employeeResponseDTO.setEmail(employee.getEmail());
-            employeeResponseDTO.setRole(employee.getRole());
-            employeeResponseDTOs.add(employeeResponseDTO);
+            EmployeeResponseDTO employeeResponseDto = new EmployeeResponseDTO();
+            employeeResponseDto.setId(employee.getId());
+            employeeResponseDto.setName(employee.getName());
+            employeeResponseDto.setEmail(employee.getEmail());
+            employeeResponseDto.setRole(employee.getRole());
+            employeeResponseDtos.add(employeeResponseDto);
         }
 
-        return employeeResponseDTOs;
+        return employeeResponseDtos;
     }
 
     // Delete employee
